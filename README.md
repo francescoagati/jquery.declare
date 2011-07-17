@@ -52,11 +52,11 @@ append events e style to table
     }
   });
   
-   $("table")
-    .declare('row.alternate',{
-      odd_color:'#ff0000',
-      even_color:'#00ff00'
-    })
-    .find("tr")
-    .declare("row.hover","#0000ff");
+  $("table")
+  .declare('row.alternate',{
+    odd_color:'#ff0000',
+    even_color:'#00ff00'
+  })
+  .find("tr")
+  .declare("row.hover","#0000ff");
 ```  
