@@ -6,6 +6,7 @@ Some examples:
 
 append style css to dom objects
 
+```
     $.fn.declare.add({
       'set.color': function(color) {
         return this.css({
@@ -20,10 +21,11 @@ append style css to dom objects
     });
     
     $("div.title").declare('set.color', 'yellow').declare('set.bgcolor', 'red');
-
+```
 
 append events e style to table
 
+```
   $.fn.declare.add({
     'row.alternate': function(opt) {
       this.find("tr.odd")
@@ -57,4 +59,4 @@ append events e style to table
     })
     .find("tr")
     .declare("row.hover","#0000ff");
-  
+```  
