@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="../jquery.declare.js"></script>
+  </head>
+  <body>
+      
+      
+      <table>
+        <tr class="odd"><td>row 1</td></tr>
+        <tr class="even"><td>row 2</td></tr>
+        <tr class="odd"><td>row 3</td></tr>
+      </table>
+      
+      <script>
+        $(function() {
+          
+          $.fn.declare.add({
+            'row.alternate': function(opt) {
+              this.find("tr.odd")
+              .css("background-color",opt.odd_color)
+              .end()
+              .find("tr.even")
+              .css("background-color",opt.even_color);
+            }
+          });
+          
+          $.fn.declare.add({       
+            'row.hover':function(color_hover) {
+              this.hover(
+                function() {
+                  var that=$(this);
+                  that.data("old-bg",that.css("background-color"));
+                  that.css("background-color",color_hover);
+                },
+                function() {
+                  var that=$(this);
+                  that.css("background-color", that.data("old-bg"));
+                }  
+              )
+            }
+          });
+          
+          $("table")
+          .declare('row.alternate',{
+            odd_color:'#ff0000',
+            even_color:'#00ff00'
+          })
+          .find("tr")
+          .declare("row.hover","#0000ff");
+          
+        });
+      </script>
+      
+  </body>  
+</html>
